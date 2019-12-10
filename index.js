@@ -3,13 +3,17 @@ const api = require('./lib/api');
 const formatter = require('./lib/formatter');
 const fs = require('fs');
 
-module.exports = function(username) {
+module.exports = function () {
+  let username = process.argv[2]
+  if (!username) {
+    console.warn('No username provided. Usage: profile-generator [username]')
+    return;
+  }
   api.getProfile(username).then(function(data) {
-    console.log(data)
     convertHtmlToPdf(formatter.toHtml(data), function(pdf) {
       fs.writeFileSync(`./output/${username}.pdf`, pdf, 'binary');
     });
   });
 }
 
-require('./index')('atparkweb')
+require('./index.js')();
