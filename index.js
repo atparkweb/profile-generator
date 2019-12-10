@@ -7,7 +7,7 @@ module.exports = function(username) {
   api.getProfile(username).then(function(data) {
     console.log(data)
     convertHtmlToPdf(formatter.toHtml(data), function(pdf) {
-      fs.writeFileSync(`${username}.pdf`, pdf, 'binary');
+      fs.writeFileSync(`./output/${username}.pdf`, pdf, 'binary');
     });
   });
 }
