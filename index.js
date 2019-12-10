@@ -6,7 +6,7 @@ const fs = require('fs');
 module.exports = function () {
   let username = process.argv[2]
   if (!username) {
-    console.warn('No username provided. Usage: profile-generator [username]')
+    console.warn('No username provided. Usage: npm start [username]')
     return;
   }
   api.getProfile(username).then(function(data) {
