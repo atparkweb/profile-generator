@@ -1,4 +1,4 @@
 # profile-generator
-A command line utility that generates a Github profile PDF
+A command line utility that generates a PDF from a Github profile
 
-Usage: npm start [profile_username]
+Usage: `npm start [profile_username]`
